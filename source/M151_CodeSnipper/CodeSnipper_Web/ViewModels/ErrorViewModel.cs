@@ -1,4 +1,4 @@
-namespace CodeSnipper_Web.Models
+namespace CodeSnipper_Web.ViewModels
 {
     public class ErrorViewModel
     {
