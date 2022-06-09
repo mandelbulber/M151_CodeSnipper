@@ -8,3 +8,5 @@
 | 23.05.2022 | Andrin | 45   | Initial setup and Model         |
 | 23.05.2022 | Tim    | 30   | Model                           |
 | 28.05.2022 | Tim    | 60   | Move Database Connection in DAL |
+| 09.06.2022 | Andrin | 60   | Documentation                   |
+| 09.06.2022 | Tim    | 60   | Documentation                   |
