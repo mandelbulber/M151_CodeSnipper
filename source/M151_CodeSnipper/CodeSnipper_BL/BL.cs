@@ -13,7 +13,7 @@ namespace CodeSnipper_BL
             _dbContext.SaveChanges();
         }
 
-        public static CodeSnippet? GetCodeSnippet(string id)
+        public static CodeSnippet? GetSnippet(string id)
         {
             CodeSnippet? codeSnippet = _dbContext.CodeSnippets.FirstOrDefault(x => x.Id == id);
             return codeSnippet;

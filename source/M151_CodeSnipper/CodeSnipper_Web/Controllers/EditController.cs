@@ -14,7 +14,7 @@ namespace CodeSnipper_Web.Controllers
         [Route("Edit/{id}")]
         public IActionResult Index(string id)
         {
-            CodeSnippet? codeSnippet = BL.GetCodeSnippet(id);
+            CodeSnippet? codeSnippet = BL.GetSnippet(id);
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (codeSnippet == null || codeSnippet.OwnerId != userId)
@@ -36,7 +36,7 @@ namespace CodeSnipper_Web.Controllers
         [Route("Edit/{id}")]
         public IActionResult Index(SnippetViewModel snippetViewModel)
         {
-            CodeSnippet? dbCodeSnippet = BL.GetCodeSnippet(snippetViewModel.Id);
+            CodeSnippet? dbCodeSnippet = BL.GetSnippet(snippetViewModel.Id);
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (dbCodeSnippet == null || dbCodeSnippet.OwnerId != userId)
