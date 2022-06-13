@@ -32,5 +32,20 @@ namespace CodeSnipper_BL
 
             _dbContext.SaveChanges();
         }
+
+        public static void DeleteSnippet(string id)
+        {
+            CodeSnippet? dbCodeSnippet = _dbContext.CodeSnippets.FirstOrDefault(x => x.Id == id);
+            if (dbCodeSnippet == null)
+                return;
+
+            _dbContext.CodeSnippets.Remove(dbCodeSnippet);
+            _dbContext.SaveChanges();
+        }
+
+        public static List<CodeSnippet> GetAllCodeSnippets()
+        {
+            return _dbContext.CodeSnippets.ToList();
+        }
     }
 }
