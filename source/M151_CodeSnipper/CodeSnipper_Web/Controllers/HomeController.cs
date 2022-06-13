@@ -1,4 +1,4 @@
-﻿using CodeSnipper_Web.Models;
+﻿using CodeSnipper_Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

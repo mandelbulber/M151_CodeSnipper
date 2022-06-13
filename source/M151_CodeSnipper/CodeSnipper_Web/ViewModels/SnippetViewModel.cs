@@ -1,30 +1,16 @@
-﻿namespace CodeSnipper_Web.ViewModels
+﻿using CodeSnipper_DAL.Models;
+
+namespace CodeSnipper_Web.ViewModels
 {
     public class SnippetViewModel
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
+        public string Id { get; set; } = string.Empty;
+        public string Title { get; set; } = string.Empty;
+        public string Content { get; set; } = string.Empty;
+        public string Owner { get; set; } = string.Empty;
+        public string Language { get; set; } = string.Empty;
         public bool IsPublic { get; set; }
-        public string Language { get; set; }
 
-        public static List<string> Languages { get; } = new()
-        {
-            "C",
-            "C++",
-            "C#",
-            "C# Script",
-            "VB",
-            "Java",
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "PHP",
-            "Python",
-            "Rust",
-            "SQL (General)",
-            "SQL (MySQL)",
-            "SQL (MSSQL)"
-        };
+        public static List<string> Languages { get; } = CodeSnippet.Languages;
     }
 }
