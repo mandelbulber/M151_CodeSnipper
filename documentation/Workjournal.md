@@ -10,3 +10,4 @@
 | 28.05.2022 | Tim    | 60   | Move Database Connection in DAL |
 | 09.06.2022 | Andrin | 60   | Documentation                   |
 | 09.06.2022 | Tim    | 60   | Documentation                   |
+| 13.06.2022 | Tim    | 120  | New, Edit, Delete Snippets      |
