@@ -43,9 +43,14 @@ namespace CodeSnipper_BL
             _dbContext.SaveChanges();
         }
 
-        public static List<CodeSnippet> GetAllCodeSnippets()
+        public static List<CodeSnippet> GetPublicCodeSnippets()
         {
-            return _dbContext.CodeSnippets.ToList();
+            return _dbContext.CodeSnippets.Where(x => x.IsPublic).ToList();
+        }
+
+        public static List<CodeSnippet> GetPrivateCodeSnippets(string userId)
+        {
+            return _dbContext.CodeSnippets.Where(x => !x.IsPublic && x.Id == userId).ToList();
         }
     }
 }
