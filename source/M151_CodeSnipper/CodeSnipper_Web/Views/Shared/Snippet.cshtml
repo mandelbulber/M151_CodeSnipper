@@ -1,0 +1,17 @@
+﻿@using CodeSnipper_Web.ViewModels;
+@model SnippetViewModel
+
+<h4>@Model.Title</h4>
+<hr />
+<textarea id="content" readonly="readonly" style="width: 100%; height: 50vh;">@Model.Content</textarea>
+<p>Language: @Model.Language</p>
+<p>Creator: @Model.OwnerId</p>
+<button onclick="copy()">Copy</button>
+
+<script>
+    function copy() {
+        let textarea = document.getElementById("content");
+        textarea.select();
+        document.execCommand("copy");
+    }
+</script>
