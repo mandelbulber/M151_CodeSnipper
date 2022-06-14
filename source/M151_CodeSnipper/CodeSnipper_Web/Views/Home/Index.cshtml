@@ -1,8 +1,16 @@
-﻿@{
+﻿@using CodeSnipper_Web.ViewModels;
+@model List<CodeSnipper_Web.ViewModels.SnippetViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="row">
+        @foreach (SnippetViewModel snippet in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3" style="margin-bottom: 4em;">
+                <partial name="/Views/Shared/Snippet.cshtml" model="snippet" />
+            </div>
+        }
+    </div>
 </div>

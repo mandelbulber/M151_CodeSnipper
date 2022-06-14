@@ -1,4 +1,6 @@
-﻿using CodeSnipper_Web.ViewModels;
+﻿using CodeSnipper_BL;
+using CodeSnipper_DAL.Models;
+using CodeSnipper_Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -15,7 +17,22 @@ namespace CodeSnipper_Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<CodeSnippet> dbSnippets = BL.GetPublicCodeSnippets();
+            List<SnippetViewModel> snippetViewModels = new();
+            foreach(CodeSnippet codeSnippet in dbSnippets)
+            {
+                SnippetViewModel snippetViewModel = new()
+                {
+                    Id = codeSnippet.Id,
+                    Title = codeSnippet.Title,
+                    Content = codeSnippet.Content,
+                    OwnerId = codeSnippet.OwnerId,
+                    Language = codeSnippet.Language,
+                    IsPublic = codeSnippet.IsPublic
+                };
+                snippetViewModels.Add(snippetViewModel);
+            }
+            return View(snippetViewModels);
         }
 
         public IActionResult Privacy()
