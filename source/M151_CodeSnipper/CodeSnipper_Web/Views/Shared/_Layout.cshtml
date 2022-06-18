@@ -27,6 +27,9 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="MySnippets" asp-action="Index">My Snippets</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="New" asp-action="Index">New</a>
                             </li>
                         }
