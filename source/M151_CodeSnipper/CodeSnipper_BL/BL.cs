@@ -48,9 +48,9 @@ namespace CodeSnipper_BL
             return _dbContext.CodeSnippets.Where(x => x.IsPublic).ToList();
         }
 
-        public static List<CodeSnippet> GetPrivateCodeSnippets(string userId)
+        public static List<CodeSnippet> GetUsersCodeSnippets(string userId)
         {
-            return _dbContext.CodeSnippets.Where(x => !x.IsPublic && x.Id == userId).ToList();
+            return _dbContext.CodeSnippets.Where(x => x.OwnerId == userId).ToList();
         }
     }
 }
