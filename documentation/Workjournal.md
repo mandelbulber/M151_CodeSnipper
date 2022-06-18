@@ -13,4 +13,5 @@
 | 13.06.2022 | Tim    | 120  | New, Edit, Delete Snippets      |
 | 14.06.2022 | Andrin | 120  | Model and ViewModel, Home       |
 | 15.06.2022 | Andrin | 120  | Home, MySnippets                |
+| 18.06.2022 | Andrin | 60   | BL, Home, MySnippets            |
 
