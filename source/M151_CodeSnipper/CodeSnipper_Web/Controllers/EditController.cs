@@ -20,14 +20,7 @@ namespace CodeSnipper_Web.Controllers
             if (codeSnippet == null || codeSnippet.OwnerId != userId)
                 return View("Error", id);
 
-            SnippetViewModel snippetViewModel = new()
-            {
-                Id = codeSnippet.Id,
-                Title = codeSnippet.Title,
-                Content = codeSnippet.Content,
-                IsPublic = codeSnippet.IsPublic,
-                Language = codeSnippet.Language
-            };
+            SnippetViewModel snippetViewModel = codeSnippet.ConvertToSnippetViewModel();
 
             return View(snippetViewModel);
         }
@@ -39,13 +32,13 @@ namespace CodeSnipper_Web.Controllers
             CodeSnippet? dbCodeSnippet = BL.GetSnippet(snippetViewModel.Id);
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (dbCodeSnippet == null || dbCodeSnippet.OwnerId != userId)
+            if (dbCodeSnippet == null ||
+                dbCodeSnippet.OwnerId != userId)
                 return RedirectToAction("Index", "Home");
 
-            dbCodeSnippet.Title = snippetViewModel.Title;
-            dbCodeSnippet.Content = snippetViewModel.Content;
-            dbCodeSnippet.IsPublic = snippetViewModel.IsPublic;
-            dbCodeSnippet.Language = snippetViewModel.Language;
+            dbCodeSnippet = snippetViewModel.ConvertToCodeSnippet();
+            if (!dbCodeSnippet.IsValid())
+                return RedirectToAction("Index", "Home");
 
             BL.UpdateSnippet(dbCodeSnippet);
 

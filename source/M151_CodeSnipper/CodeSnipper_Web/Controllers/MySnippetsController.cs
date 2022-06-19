@@ -16,15 +16,7 @@ namespace CodeSnipper_Web.Controllers
             List<SnippetViewModel> snippetViewModels = new();
             foreach (CodeSnippet codeSnippet in dbSnippets)
             {
-                SnippetViewModel snippetViewModel = new()
-                {
-                    Id = codeSnippet.Id,
-                    Title = codeSnippet.Title,
-                    Content = codeSnippet.Content,
-                    OwnerId = codeSnippet.OwnerId,
-                    Language = codeSnippet.Language,
-                    IsPublic = codeSnippet.IsPublic
-                };
+                SnippetViewModel snippetViewModel = codeSnippet.ConvertToSnippetViewModel();
                 snippetViewModels.Add(snippetViewModel);
             }
             return View(snippetViewModels);

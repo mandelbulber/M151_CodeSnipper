@@ -20,14 +20,14 @@ namespace CodeSnipper_Web.Controllers
         [HttpPost]
         public IActionResult Index(SnippetViewModel snippetViewModel)
         {
-            CodeSnippet codeSnippet = new()
-            {
-                Title = snippetViewModel.Title,
-                Content = snippetViewModel.Content,
-                OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier),
-                Language = snippetViewModel.Language,
-                IsPublic = snippetViewModel.IsPublic
-            };
+            if (snippetViewModel == null)
+                return RedirectToAction("Index", "Home");
+
+            CodeSnippet codeSnippet = snippetViewModel.ConvertToCodeSnippet();
+            codeSnippet.OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (!codeSnippet.IsValid())
+                return RedirectToAction("Index", "Home");
+
             BL.AddNewSnippet(codeSnippet);
 
             return RedirectToAction("Index", "Home");
