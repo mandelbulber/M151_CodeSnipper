@@ -10,6 +10,7 @@ namespace CodeSnipper_Web.Controllers
     public class DeleteController : Controller
     {
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Route("Delete")]
         public IActionResult Index(string id)
         {

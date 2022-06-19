@@ -18,6 +18,7 @@ namespace CodeSnipper_Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Index(SnippetViewModel snippetViewModel)
         {
             if (snippetViewModel == null)

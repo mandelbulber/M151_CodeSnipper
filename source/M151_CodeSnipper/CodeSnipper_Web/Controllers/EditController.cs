@@ -26,6 +26,7 @@ namespace CodeSnipper_Web.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         [Route("Edit/{id}")]
         public IActionResult Index(SnippetViewModel snippetViewModel)
         {
