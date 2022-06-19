@@ -33,6 +33,20 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="New" asp-action="Index">New</a>
                             </li>
                         }
+                        <li style="margin-left: 10vw;" class="nav-item">
+                            <label>Search among all snippets</label>
+                            <form asp-action="Index" asp-controller="Search" method="get">
+                                <select name="language">
+                                    <option value="All" selected>All languages</option>
+                                    @foreach (string language in CodeSnipper_DAL.Models.CodeSnippet.Languages)
+                                    {
+                                        <option value="@language">@language</option>
+                                    }
+                                </select>
+                                <input type="search" placeholder="Filter title" name="title">
+                                <input type="submit" value="Search">
+                            </form>
+                        </li>
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
