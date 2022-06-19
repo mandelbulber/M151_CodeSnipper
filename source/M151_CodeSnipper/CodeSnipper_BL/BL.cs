@@ -9,6 +9,13 @@ namespace CodeSnipper_BL
 
         public static void AddNewSnippet(CodeSnippet codeSnippet)
         {
+            if (codeSnippet == null ||
+                string.IsNullOrWhiteSpace(codeSnippet.Title) ||
+                string.IsNullOrWhiteSpace(codeSnippet.Content) ||
+                string.IsNullOrWhiteSpace(codeSnippet.OwnerId) ||
+                string.IsNullOrWhiteSpace(codeSnippet.Language))
+                return;
+
             _dbContext.CodeSnippets.Add(codeSnippet);
             _dbContext.SaveChanges();
         }

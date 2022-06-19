@@ -8,7 +8,7 @@ using System.Security.Claims;
 namespace CodeSnipper_Web.Controllers
 {
     [Authorize]
-    public class MySnippets : Controller
+    public class MySnippetsController : Controller
     {
         public IActionResult Index()
         {
