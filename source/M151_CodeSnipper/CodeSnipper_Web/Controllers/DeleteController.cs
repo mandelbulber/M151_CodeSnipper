@@ -10,6 +10,7 @@ namespace CodeSnipper_Web.Controllers
     public class DeleteController : Controller
     {
         [HttpPost]
+        [Route("Delete")]
         public IActionResult Index(string id)
         {
             CodeSnippet? codeSnippet = BL.GetSnippet(id);

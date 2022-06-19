@@ -15,6 +15,10 @@
                 <div style="margin-bottom: 4em;">
                     <button onclick="copy()">Copy</button>
                     <button type="button" onclick="location.href='@Url.Action("Index","Edit", new {id = snippet.Id})'">Edit</button>
+                    <form asp-action="Index" asp-controller="Delete" method="post" onSubmit="if(!confirm('Delete @snippet.Title?')){return false;}">
+                        <input type="hidden" name="id" value="@snippet.Id" />
+                        <input type="submit" value="Delete" />
+                    </form>
                 </div>
             </div>
         }
