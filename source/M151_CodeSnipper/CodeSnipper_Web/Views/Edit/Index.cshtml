@@ -4,9 +4,10 @@
     ViewData["Title"] = "View";
 }
 
-<h1>Edit Snippet "@Model.Title"</h1>
+<h1 style="margin-top: 50px;">Edit Snippet "@Model.Title"</h1>
 <h4>Id: @Model.Id</h4>
-<hr />
+<hr style="margin-bottom: 80px;" />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-controller="Edit" asp-action="Index" method="post" asp-antiforgery="true">

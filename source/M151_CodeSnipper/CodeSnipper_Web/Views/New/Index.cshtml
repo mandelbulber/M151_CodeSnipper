@@ -1,11 +1,12 @@
 ﻿@using CodeSnipper_Web.ViewModels;
 @model SnippetViewModel
 @{
-    ViewData["Title"] = "View";
+    ViewData["Title"] = "Create Snippet";
 }
 
-<h1>Create new Snippet</h1>
-<hr />
+<h1 style="margin-top: 50px;">Create Snippet</h1>
+<hr style="margin-bottom: 80px;" />
+
 <div class="row">
     <div class="col-md-4">
         <form asp-controller="New" asp-action="Index" method="post" asp-antiforgery="true">
