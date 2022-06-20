@@ -16,5 +16,5 @@
 | 18.06.2022 | Andrin | 60   | BL, Home, MySnippets                                    |
 | 19.06.2022 | Tim    | 120  | Refactoring, input validation, copy and delete function |
 | 19.06.2022 | Andrin | 150  | BL, Refactoring, Search, AntiForgery, Documentation     |
-| 20.06.2022 | Tim    | 30   | Show Username for Snippets                              |
+| 20.06.2022 | Tim    | 180  | Show Username for Snippets, Documentation               |
 
