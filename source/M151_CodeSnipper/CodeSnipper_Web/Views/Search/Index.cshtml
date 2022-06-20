@@ -1,0 +1,28 @@
+﻿@using CodeSnipper_Web.ViewModels;
+@model CodeSnipper_Web.ViewModels.SearchViewModel
+@{
+    ViewData["Title"] = "Search for Snippet";
+}
+
+@if (Model.Snippets.Count() == 0)
+{
+    <h1>Oops, seems a bit empty here..</h1>
+    <h4>No Snippet with title "@Model.Title" and language "@Model.Language" could be found</h4>
+    <h4>Maybe give it another try?</h4>
+}
+else
+{
+    <h1 style="margin-top: 50px;">Searching for "@Model.Title" and "@Model.Language" language</h1>
+    <hr style="margin-bottom: 50px;" />
+}
+
+<div class="text-center">
+    <div class="row">
+        @foreach (SnippetViewModel snippet in Model.Snippets)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3" style="margin-top: 30px;">
+                <partial name="/Views/Shared/Snippet.cshtml" model="snippet" />
+            </div>
+        }
+    </div>
+</div>

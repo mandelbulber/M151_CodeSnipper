@@ -1,0 +1,17 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Error editing";
+}
+
+<h1>Edit Snippet "@Model"</h1>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <p>Snippet with Id "@Model" could not be found or you're not authorized to edit it.</p>
+        <p><a href="/">Return to Home</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
