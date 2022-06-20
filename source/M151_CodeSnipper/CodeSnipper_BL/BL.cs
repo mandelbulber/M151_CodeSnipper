@@ -56,5 +56,10 @@ namespace CodeSnipper_BL
         {
             return _dbContext.CodeSnippets.Where(x => x.IsPublic || x.OwnerId == userId).ToList();
         }
+
+        public static string GetUsername(string userId)
+        {
+            return _dbContext.Users.FirstOrDefault(x => x.Id == userId)?.UserName ?? "";
+        }
     }
 }

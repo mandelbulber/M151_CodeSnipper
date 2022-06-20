@@ -1,10 +1,14 @@
-﻿using CodeSnipper_DAL.Models;
+﻿using CodeSnipper_BL;
+using CodeSnipper_DAL.Models;
 using CodeSnipper_Web.ViewModels;
 
 namespace CodeSnipper_Web
 {
     public static class Extensions
     {
+        /// <summary>
+        /// Converts a CodeSnippet to a SnippetViewModel. Does fill in the Username of the owner in OwnerUsername.
+        /// </summary>
         public static SnippetViewModel ConvertToSnippetViewModel(this CodeSnippet codeSnippet)
         {
             SnippetViewModel snippetViewModel = new()
@@ -13,12 +17,15 @@ namespace CodeSnipper_Web
                 Title = codeSnippet.Title,
                 Content = codeSnippet.Content,
                 Language = codeSnippet.Language,
-                OwnerId = codeSnippet.OwnerId,
+                OwnerUsername = BL.GetUsername(codeSnippet.OwnerId),
                 IsPublic = codeSnippet.IsPublic
             };
             return snippetViewModel;
         }
-
+        
+        /// <summary>
+        /// Converts a SnippetViewModel to a CodeSnippet. Does not fill OwnerUsername into OwnerId.
+        /// </summary>
         public static CodeSnippet ConvertToCodeSnippet(this SnippetViewModel snippetViewModel)
         {
             CodeSnippet codeSnippet = new()
@@ -26,7 +33,6 @@ namespace CodeSnipper_Web
                 Title = snippetViewModel.Title,
                 Content = snippetViewModel.Content,
                 Language = snippetViewModel.Language,
-                OwnerId = snippetViewModel.OwnerId,
                 IsPublic = snippetViewModel.IsPublic
             };
             return codeSnippet;
