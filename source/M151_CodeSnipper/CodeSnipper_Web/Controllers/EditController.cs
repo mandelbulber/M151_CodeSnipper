@@ -35,15 +35,15 @@ namespace CodeSnipper_Web.Controllers
 
             if (dbCodeSnippet == null ||
                 dbCodeSnippet.OwnerId != userId)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MySnippets");
 
             dbCodeSnippet = snippetViewModel.ConvertToCodeSnippet();
             if (!dbCodeSnippet.IsValid())
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MySnippets");
 
             BL.UpdateSnippet(dbCodeSnippet);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "MySnippets");
         }
     }
 }

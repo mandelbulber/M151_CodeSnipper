@@ -18,11 +18,11 @@ namespace CodeSnipper_Web.Controllers
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
             if (codeSnippet == null || codeSnippet.OwnerId != userId)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MySnippets");
 
             BL.DeleteSnippet(codeSnippet.Id);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "MySnippets");
         }
     }
 }

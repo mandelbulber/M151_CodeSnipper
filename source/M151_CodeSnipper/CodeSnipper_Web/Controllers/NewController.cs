@@ -22,16 +22,16 @@ namespace CodeSnipper_Web.Controllers
         public IActionResult Index(SnippetViewModel snippetViewModel)
         {
             if (snippetViewModel == null)
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MySnippets");
 
             CodeSnippet codeSnippet = snippetViewModel.ConvertToCodeSnippet();
             codeSnippet.OwnerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (!codeSnippet.IsValid())
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "MySnippets");
 
             BL.AddNewSnippet(codeSnippet);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "MySnippets");
         }
     }
 }
